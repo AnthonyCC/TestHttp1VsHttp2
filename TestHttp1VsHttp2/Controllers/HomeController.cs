@@ -10,13 +10,16 @@ namespace TestHttp1VsHttp2.Controllers
     {
         public ActionResult Index()
         {
+            Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
+
+            // Stop Caching in Firefox
+            Response.Cache.SetNoStore();
+
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult PerforamceTest()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
